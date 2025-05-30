@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 
@@ -11,7 +10,7 @@ export default function Exer8() {
         style={styles.capa}
       />
 
-      {/* Foto de Perfil sobreposta */}
+      {/* Foto de Perfil sobreposta e centralizada */}
       <View style={styles.perfilContainer}>
         <Image
           source={require('../assets/images/heitor.jpg')}
@@ -19,25 +18,27 @@ export default function Exer8() {
         />
       </View>
 
-      <View style={styles.secao}>
+      {/* Nome com menos margem embaixo */}
+      <View style={[styles.secao, styles.nomeContainer]}>
         <Text style={styles.nome}>Heitor Mota Avilla</Text>
       </View>
 
-      <View style={styles.secao}>
+      {/* Bio mais próxima do nome */}
+      <View style={[styles.secao, styles.bioContainer]}>
         <Text style={styles.bio}>I love cars.</Text>
       </View>
 
-      <View style={styles.secao}>
+      <View style={styles.secaoCompacta}>
         <Text style={styles.secaoTitulo}>Meus Posts</Text>
         <Text style={styles.secaoConteudo}>7 Posts</Text>
       </View>
 
-      <View style={styles.secao}>
+      <View style={styles.secaoCompacta}>
         <Text style={styles.secaoTitulo}>Seguidores</Text>
         <Text style={styles.secaoConteudo}>367 Seguidores</Text>
       </View>
 
-      <View style={styles.secao}>
+      <View style={styles.secaoCompacta}>
         <Text style={styles.secaoTitulo}>Seguindo</Text>
         <Text style={styles.secaoConteudo}>1.312 Seguindo</Text>
       </View>
@@ -56,11 +57,9 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   perfilContainer: {
-    position: "absolute",
-    top: 150,
-    left: 20,
-    alignItems: "center",
-    zIndex: 1, // Garantir que a imagem de perfil tenha um índice maior para aparecer sobre a capa
+    marginTop: -60, // sobe a foto para sobrepor a capa
+    alignItems: "center", // centraliza horizontalmente
+    zIndex: 1, // fica acima da capa
   },
   perfil: {
     width: 120,
@@ -69,27 +68,31 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     borderColor: "#fff",
   },
-  nomeContainer: {
-    position: "absolute",
-    top: 280, // Ajuste para garantir que o nome apareça abaixo da foto de perfil
-    left: 20,
-    alignItems: "center",
-    zIndex: 1, // Garantir que o nome apareça sobre o fundo
-  },
   nome: {
     fontSize: 22,
     fontWeight: "bold",
-    marginTop: 20
+    marginTop: 10,
+    textAlign: "center",
+  },
+  nomeContainer: {
+    marginBottom: 5, // margem menor depois do nome
+  },
+  bioContainer: {
+    marginBottom: 10,
   },
   bio: {
-    marginHorizontal: 3,
+    marginHorizontal: 20,
     fontSize: 16,
     color: "#333",
-    textAlign: "left",
+    textAlign: "center",
   },
   secao: {
     marginHorizontal: 20,
-    marginBottom: 20
+    marginBottom: 20,
+  },
+  secaoCompacta: {
+    marginHorizontal: 20,
+    marginBottom: 10,
   },
   secaoTitulo: {
     fontSize: 18,

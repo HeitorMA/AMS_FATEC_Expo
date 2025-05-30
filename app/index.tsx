@@ -1,9 +1,9 @@
 import { Link } from "expo-router";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text } from "react-native";
 
 export default function Index() {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
       <Text style={styles.title}>Exercícios</Text>
 
       <Link href="/exer1" asChild>
@@ -65,21 +65,18 @@ export default function Index() {
           <Text style={styles.buttonText}>Exercício 10</Text>
         </Pressable>
       </Link>
-
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
+  scrollContainer: {
     padding: 20,
+    alignItems: "center",
+    backgroundColor: "#fff",
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "bold",
     marginBottom: 10,
   },
